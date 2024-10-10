@@ -6,6 +6,11 @@ Cat::Cat()
 	this->_type = "Cat";
 }
 
+Cat::Cat(const Cat &ref)
+{
+	std::cout << "Cat Copy constructor called" << std::endl;
+}
+
 Cat::~Cat()
 {
 	std::cout << "Cat default constructor called" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:53:34 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/24 15:14:43 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/27 10:50:36 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Cat : public Animal
 
 	public:
     	Cat();
+		Cat(const Cat &ref);
    		~Cat();
 
 		void	makeSound() const;

@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:29:19 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 18:03:10 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/30 09:54:34 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@ ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called for " << this->_Name << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &ref)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->_Name = ref._Name;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &ref)
+{
+	this->_Name = ref._Name;
 }
 
 void	ScavTrap::attack(const std::string& target)

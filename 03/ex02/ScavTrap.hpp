@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:25:24 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 18:21:41 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/27 10:47:05 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ class ScavTrap : public ClapTrap
 
 	public:
 		ScavTrap();
+		ScavTrap(const ScavTrap &ref);
 		ScavTrap(std::string Name);
 		~ScavTrap();
 
+		ScavTrap &operator=(const ScavTrap &ref);
 		void	attack(const std::string& target);
 		void	guardGate();
 };

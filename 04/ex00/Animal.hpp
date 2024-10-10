@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:51:35 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/24 15:16:45 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/27 10:48:49 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Animal
 
 	public:
    		Animal();
+		Animal(const Animal &ref);
    	 	virtual ~Animal();
 
 		virtual void	makeSound() const;

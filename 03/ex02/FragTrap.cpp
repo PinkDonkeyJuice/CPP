@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:04:44 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 18:07:23 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/27 10:45:42 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap destructor called for " << this->_Name << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &ref)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->_Name = ref._Name;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &ref)
+{
+	this->_Name = ref._Name;
+}
+
 void	FragTrap::attack(const std::string& target)
 {
 	if (this->_HP > 0 && this->_EP > 0)
@@ -39,7 +50,6 @@ void	FragTrap::attack(const std::string& target)
 	else
 		std::cout << "FragTrap " << this->_Name << " can't attack because it has no energy left" << std::endl;
 }
-
 
 void	FragTrap::highFivesGuys()
 {

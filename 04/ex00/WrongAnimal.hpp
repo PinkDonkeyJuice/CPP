@@ -11,9 +11,10 @@ private:
 
 public:
     WrongAnimal();
+	WrongAnimal(const WrongAnimal &ref);
     ~WrongAnimal();
 
+	WrongAnimal &operator=(const WrongAnimal &ref);
 	void	makeSound() const;
 	std::string	getType() const;
-
 };

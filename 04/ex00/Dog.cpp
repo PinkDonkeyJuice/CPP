@@ -11,6 +11,11 @@ Dog::~Dog()
 	std::cout << "Dog default destructor called" << std::endl;
 }
 
+Dog::Dog(const Dog &ref)
+{
+	std::cout << "Dog Copy constructor called" << std::endl;
+}
+
 void	Dog::makeSound() const
 {
 	std::cout << this->_type << " goes *woof woof*" << std::endl;

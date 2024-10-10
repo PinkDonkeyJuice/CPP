@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 14:56:51 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/27 10:52:01 by pinkdonkeyj      ###   ########.fr       */
+/*   Created: 2024/09/27 17:05:16 by pinkdonkeyj       #+#    #+#             */
+/*   Updated: 2024/10/10 15:30:05 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 
-#include "Animal.hpp"
+#include "Bureaucrat.hpp"
 
-class Dog : public Animal
+int main(void)
 {
-private:
-
-public:
-    Dog();
-	Dog(const Dog &ref);
-    ~Dog();
-
-	void	makeSound() const;
-	Dog &operator=(Dog const &newDog);
-};
+	{
+		
+	}
+}

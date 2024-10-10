@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:39:25 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 17:55:38 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/27 10:37:17 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ class ClapTrap
 
 	public:
 		ClapTrap();
+		ClapTrap(const ClapTrap &ref);
 		ClapTrap(std::string Name);
 		~ClapTrap();
 
+		ClapTrap &operator=(const ClapTrap &ref);
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);

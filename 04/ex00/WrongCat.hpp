@@ -11,5 +11,9 @@ private:
 
 public:
     WrongCat();
+	WrongCat(const WrongCat &ref);
     ~WrongCat();
+
+	void	makeSound() const;
+	WrongCat &operator=(const WrongCat &ref);
 };

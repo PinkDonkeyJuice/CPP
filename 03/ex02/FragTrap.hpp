@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:04:59 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 18:21:35 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/27 10:45:36 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ class FragTrap : public ClapTrap
 
 	public:
 		FragTrap();
+		FragTrap(const FragTrap &ref);
 		FragTrap(std::string Name);
 		~FragTrap();
 
+		FragTrap &operator=(const FragTrap &ref);
 		void	attack(const std::string& target);
 		void	highFivesGuys(void);
 };

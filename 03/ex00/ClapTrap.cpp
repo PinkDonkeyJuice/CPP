@@ -6,7 +6,7 @@
 /*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:44:08 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 17:55:42 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/09/27 10:40:51 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ ClapTrap::ClapTrap(std::string Name)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called for " << this->_Name << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &ref)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->_Name = ref._Name;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &ref)
+{
+	this->_Name = ref._Name;
 }
 
 void	ClapTrap::attack(const std::string& target)

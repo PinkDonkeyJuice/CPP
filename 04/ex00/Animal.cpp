@@ -10,6 +10,12 @@ Animal::~Animal()
 	std::cout << "Animal default destructor called" << std::endl;
 }
 
+Animal::Animal(const Animal &ref)
+{
+	std::cout << "Animal copy constructor called" << std::endl;
+	this->_type = ref._type;
+}
+
 void	Animal::makeSound() const
 {
 	std::cout << "*Undefined animal sound*" << std::endl;
