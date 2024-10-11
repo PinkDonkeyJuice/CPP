@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.Class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:27:49 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/10 12:15:02 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/10/11 12:52:14 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	PhoneBook::search(void)
 	do
 	{
 		std::cout << "Enter the index of the contact you are looking for: \n" << std::flush;
-		std::getline(std::cin, input);
+		std::cin >> input;
 		index = atoi(input.c_str());
 		if (index > 0 && index <= 8)
 		{
