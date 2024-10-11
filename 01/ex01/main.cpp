@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 10:55:03 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/08/08 11:26:37 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/10/11 14:28:08 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 	std::cin >> N;
 
 	horde = zombieHorde(N, name);
-	for (size_t i; i < N; i++)
+	for (size_t i = 0; i < N; i++)
 	{
 		horde[i].announce();
 	}
