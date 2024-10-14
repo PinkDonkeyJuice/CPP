@@ -105,6 +105,18 @@ void	Bureaucrat::signForm(AForm &AForm)
 	}
 }
 
+void	Bureaucrat::executeForm(AForm &AForm)
+{
+	try
+	{
+		AForm.execute(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
+
 //Exceptions
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()

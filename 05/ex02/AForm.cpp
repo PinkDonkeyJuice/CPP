@@ -81,3 +81,8 @@ const char *AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high for this AForm");
 }
+
+const char *AForm::FormNotSignedException::what() const throw()
+{
+	return ("This form hasn't been signed yet");
+}

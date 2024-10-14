@@ -6,7 +6,10 @@ FLAGS	= -Wall -Werror -Wextra
 OBJDIR = .obj
 
 CLASS_FILES = Bureaucrat\
-			Form\
+			AForm\
+			PresidentialPardonForm\
+			RobotomyRequestForm\
+			ShrubberyCreationForm\
 
 FILES = $(CLASS_FILES)\
 		main\

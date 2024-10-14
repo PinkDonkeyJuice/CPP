@@ -14,6 +14,7 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 
 #include "Bureaucrat.hpp"
 
@@ -47,11 +48,18 @@ public:
 			const char *what() const throw();
 	};
 
+	class FormNotSignedException : public std::exception
+	{
+		public:
+			const char *what() const throw();
+	};
+
 	//Overloaders
     AForm &operator=(const  AForm &src);
 
 	//Methods
 	void	beSigned(Bureaucrat &bureaucrat);
+	virtual void	execute(Bureaucrat &executor) const = 0;
 
 	//Getters
 	const std::string getName() const;

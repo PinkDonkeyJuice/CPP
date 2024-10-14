@@ -30,6 +30,7 @@ public:
 
 	//Methods
 	void	signForm(AForm &AForm);
+	void	executeForm(AForm &AForm);
 
 	//Exceptions
 	class GradeTooLowException : public std::exception
