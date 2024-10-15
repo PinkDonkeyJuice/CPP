@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.Class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:15:40 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/08/07 12:39:50 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/10/15 15:21:35 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <fstream>
+#include <string>
 
 class Contact
 {
@@ -34,6 +36,7 @@ class Contact
 		~Contact();
 		void	init(void);
 		void	setIndex(int i);
+		int		getIndex();
 		void	disp_contact(void);
 		void	disp_info(void);
 };

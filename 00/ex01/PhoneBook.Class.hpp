@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.Class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 10:48:33 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/08/07 12:38:25 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/10/15 13:27:24 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <iomanip>
 #include "Contact.Class.hpp"
+#include <cstdlib>
+#include <iomanip>
 
 class PhoneBook
 {
