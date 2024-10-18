@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 15:12:17 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/10/15 15:50:27 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/10/18 11:14:45 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ void	Contact::disp_info(void)
 		return ;
 	std::cout << std::endl;
 	std::cout << "---- CONTACT #" << index << " ----" << std::endl;
-	std::cout << "First Name: " << std::setw(10) <<  this->_firstName << std::endl;
-	std::cout << "Last Name: " << std::setw(10) << this->_lastName << std::endl;
-	std::cout << "nickname: " << std::setw(10) << this->_nickName << std::endl;
-	std::cout << "Phone Number: " << std::setw(10) << this->_phoneNumber << std::endl;
-	std::cout << "Darkest Secret: " << std::setw(10) << this->_darkestSecret << std::endl;
+	std::cout << "First Name: " <<  this->_firstName << std::endl;
+	std::cout << "Last Name: " << this->_lastName << std::endl;
+	std::cout << "nickname: " << this->_nickName << std::endl;
+	std::cout << "Phone Number: " << this->_phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << this->_darkestSecret << std::endl;
 	std::cout << std::endl;
 }
 
