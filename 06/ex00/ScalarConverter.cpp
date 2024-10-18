@@ -1,11 +1,21 @@
-#include "ScalarConverter.h"
+#include "ScalarConverter.hpp"
 
 ScalarConverter::ScalarConverter()
 {
-
+    std::cout << "ScalarConverter default constructor called" << std::endl;
 }
 
 ScalarConverter::~ScalarConverter()
+{
+    std::cout << "ScalarConverter destructor called" << std::endl;
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &ref)
+{
+     std::cout << "ScalarConverter Copy Constructor called";
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &ref)
 {
 
 }
@@ -13,32 +23,49 @@ ScalarConverter::~ScalarConverter()
 std::string getType(const std::string input)
 {
 	int i = 0;
-	bool	dec_point = false;
+	bool	has_point = false;
 
-	if (input.length == 0)
+	if (input.length() == 0)
 		return ("empty");
-	else if (input.length == 1 && !std::isdigit(input[0]))
+	else if (input.length() == 1 && !std::isdigit(input[0]))
 		return ("char");
+	if (input == "-inff" || input == "inff")
+		return ("float");
+	if (input == "-inf" || input == "inf" || input == "nan")
+		return ("double");
 	else
 	{
-		while (std::isdigit(input[i]) || input[i] == '.' || (input[i] == 'f' && i == input.length - 1))
+		if (input[0] == '-' || input[0] == '+')
+			i++;
+		if (input[i] == '.')
+			return ("unknown type");
+		while (std::isdigit(input[i]) || input[i] == '.')
 		{
 			if (input[i] == '.')
 			{
-					if (dec_point == true)
-					return ("unkown type");
+					if (has_point == true)
+					return ("unknown type");
 				else
-					dec_point = true;
+					has_point = true;
 			}
-			if (input[i] == 'f')
-				return ("float");
-			
+			i++;
 		}
+		if (i == input.length())
+			return ("unknown type");
+		if (input[i] == 'f' && i == input.length() - 1)
+			return ("float");
+		if (has_point == true)
+			return ("double");
+		else
+			return ("int");
 	}
-
 }
 
-static void	ScalarConverter::convert(const std::string str_value)
+void	*ScalarConverter::convert(const std::string input)
 {
-	
+	std::string type;
+
+	type = getType(input);
+	if (type == "int")
+		return(stoi(input));
 }

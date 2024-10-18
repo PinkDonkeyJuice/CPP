@@ -1,11 +1,11 @@
-NAME	= Bureaucrat
+NAME	= convert
 
 CC		= c++
 FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = .obj
 
-CLASS_FILES = Bureaucrat
+CLASS_FILES = ScalarConverter
 
 FILES = $(CLASS_FILES)\
 		main\
