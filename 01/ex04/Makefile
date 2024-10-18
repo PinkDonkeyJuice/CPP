@@ -1,7 +1,7 @@
 NAME	= replace
 
 CC		= c++
-FLAGS	= -Wall -Werror -Wextra
+FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = .obj
 
