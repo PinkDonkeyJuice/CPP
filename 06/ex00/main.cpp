@@ -14,5 +14,7 @@
 
 int	main(int argc, char**argv)
 {
+	(void) argc;
 	ScalarConverter *converter = new ScalarConverter(argv[1]);
+	delete(converter);
 }

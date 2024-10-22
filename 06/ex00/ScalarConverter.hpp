@@ -2,6 +2,8 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <cstdio>
 #include <cstdlib>
 #include <limits>
 #include <climits>
@@ -29,12 +31,11 @@ public:
 	void	fromChar(void);
 	void	fromDouble(void);
 	void	fromFloat(void);
-	void	printOutput(void);
+	void	printOutput(void) const;
     ScalarConverter &operator=(const  ScalarConverter &src);
 	void convert(void);
-	void	printOutput() const;
-	std::string getType(const std::string input);
-
+	std::string findType(const std::string input);
+	std::string		getType();
 	class ConversionErrorException : public std::exception
 	{
 		public:

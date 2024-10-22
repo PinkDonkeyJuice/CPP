@@ -8,7 +8,17 @@ ScalarConverter::ScalarConverter()
 ScalarConverter::ScalarConverter(const std::string input): _input(input)
 {
 	std::cout << "Scalar Converter default constructor called for " << this->_input << std::endl;
-	this->_type = getType(this->_input);
+	this->_type = findType(this->_input);
+	try
+	{
+		this->convert();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		return ;
+	}
+	this->printOutput();
 }
 
 ScalarConverter::~ScalarConverter()
@@ -28,7 +38,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &ref)
 	return (*this);
 }
 
-std::string ScalarConverter::getType(const std::string input)
+std::string ScalarConverter::findType(const std::string input)
 {
 	size_t i = 0;
 	bool	has_point = false;
@@ -43,9 +53,9 @@ std::string ScalarConverter::getType(const std::string input)
 	{
 		if (input[0] == '-' || input[0] == '+')
 			i++;
-		if (input[i] == '.')
+		if (input[i] == '.' || input[i] == 'f')
 			return ("unknown type");
-		while (std::isdigit(input[i]) || input[i] == '.')
+		while (std::isdigit(input[i]) || input[i] == '.' || input[i] == 'f')
 		{
 			if (input[i] == '.')
 			{
@@ -56,9 +66,9 @@ std::string ScalarConverter::getType(const std::string input)
 			}
 			i++;
 		}
-		if (i == input.length())
+		if (i != input.length())
 			return ("unknown type");
-		if (input[i] == 'f' && i == input.length() - 1)
+		if (input[i - 1] == 'f')
 			return ("float");
 		if (has_point == true)
 			return ("double");
@@ -69,9 +79,8 @@ std::string ScalarConverter::getType(const std::string input)
 
 void	ScalarConverter::convert(void)
 {
-	std::string type;
 	std::string types[4] = {"char", "int", "double", "float"};
-	void	(ScalarConverter::*fnPointers[])(void) = {&ScalarConverter::fromChar, &ScalarConverter::fromInt};
+	void	(ScalarConverter::*fnPointers[])(void) = {&ScalarConverter::fromChar, &ScalarConverter::fromInt, &ScalarConverter::fromDouble, &ScalarConverter::fromFloat};
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -81,6 +90,8 @@ void	ScalarConverter::convert(void)
 			return ;
 		}
 	}
+	if (this->_type == "naninf")
+		return ;
 	throw ScalarConverter::ConversionErrorException();
 	
 	/* if (type == "char")
@@ -111,16 +122,16 @@ void	ScalarConverter::printOutput(void) const
 		std::cout << "int: Impossible" << std::endl;
 	if (this->_type != "naninf")
 	{
-		std::cout << "float: " << this->_float_val << std::endl;
+		std::cout << "float: " << this->_float_val << "f" <<std::endl;
 	}
 	else
 	{
 		if (this->_input == "nanf" || this->_input == "nan")
 			std::cout << "float: nanf" << std::endl;
-		else if (this->_input[0] == '+')
-			std::cout << "float: +inff";
+		else if (this->_input[0] == '-')
+			std::cout << "float: -inff" << std::endl;
 		else
-			std::cout << "float: -inff";
+			std::cout << "float: +inff" << std::endl;
 	}
 	if (this->_type != "naninf")
 	{
@@ -130,32 +141,61 @@ void	ScalarConverter::printOutput(void) const
 	{
 		if (this->_input == "nanf" || this->_input == "nan")
 			std::cout << "double: nan" << std::endl;
-		else if (this->_input[0] == '+')
-			std::cout << "double: +inf";
+		else if (this->_input[0] == '-')
+			std::cout << "double: -inf" << std::endl;
 		else
-			std::cout << "double: -inf";
+			std::cout << "double: +inf" << std::endl;
 	}
 }
 
 void ScalarConverter::fromInt(void)
 {
-	this->_int_val = static_cast<int>(std::stoi(this->_input));
+	char *pend;
+	long int long_val;
+	
+	long_val = std::strtol(this->_input.c_str(), &pend, 10);
+	if (*pend != '\0' || long_val < -2147483648 || long_val > 2147483647)
+	{
+		std::cout << "Int value out of range" << std::endl;
+		throw(ScalarConverter::ConversionErrorException());
+		return ;
+	}
+	this->_int_val = static_cast<int>(std::atoi(this->_input.c_str()));
 	this->_double_val = static_cast<double>(this->_int_val);
 	this->_float_val = static_cast<float>(this->_int_val);
+	this->_char_val = static_cast<char>(this->_int_val);
 }
 
 void	ScalarConverter::fromFloat(void)
 {
-	this->_float_val = static_cast<float>(std::stof(this->_input));
+	char *pend;
+
+	this->_float_val = static_cast<float>(std::strtof(this->_input.c_str(), &pend));
+	if (*pend != '\0')
+	{
+		std::cout << "Float value out of range" << std::endl;
+		throw(ScalarConverter::ConversionErrorException());
+		return ;
+	}
 	this->_int_val = static_cast<int>(this->_float_val);
-	this->_double_val = static_cast<double>(this->_double_val);
+	this->_double_val = static_cast<double>(this->_float_val);
+	this->_char_val = static_cast<float>(this->_float_val);
 }
 
 void	ScalarConverter::fromDouble(void)
 {
-	this->_double_val = static_cast<double>(std::stod(this->_input));
+	char *pend;
+
+	this->_double_val = static_cast<double>(std::strtod(this->_input.c_str(), &pend));
+	if (*pend != '\0')
+	{
+		std::cout << "Float value out of range" << std::endl;
+		throw(ScalarConverter::ConversionErrorException());
+		return ;
+	}
 	this->_float_val = static_cast<float>(this->_double_val);
 	this->_int_val = static_cast<int>(this->_double_val);
+	this->_char_val = static_cast<double>(this->_double_val);
 }
 
 void	ScalarConverter::fromChar(void)
@@ -164,4 +204,13 @@ void	ScalarConverter::fromChar(void)
 	this->_int_val = static_cast<int>(this->_char_val);
 	this->_double_val = static_cast<double>(this->_int_val);
 	this->_float_val = static_cast<float>(this->_int_val);
+}
+
+const char* ScalarConverter::ConversionErrorException::what() const throw() {
+    return "Conversion Error";
+}
+
+std::string	ScalarConverter::getType()
+{
+	return (this->_type);
 }
