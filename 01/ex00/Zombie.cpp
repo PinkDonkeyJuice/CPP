@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 10:34:53 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/08/08 10:48:04 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/10/24 14:17:45 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,16 @@ Zombie::~Zombie()
 void	Zombie::announce(void)
 {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+Zombie *newZombie(std::string name)
+{
+	return (new Zombie( name ));
+};
+
+void	randomChump(std::string name)
+{
+	Zombie	zomb( name );
+
+	zomb.announce();
 }

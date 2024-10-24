@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:13:47 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/17 17:24:03 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/10/24 14:46:56 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int	main(int argc, char **argv)
 		std::ofstream		output;
 		std::ifstream		input;
 
-		input.open(file_name);
+		input.open(file_name.c_str());
 		if (input.is_open() == true)
 		{
-			output.open(file_name + ".replace");
+			output.open((file_name + ".replace").c_str());
 			if (output.is_open() == true)
 			{
 				while (std::getline(input, buffer))
@@ -59,16 +59,16 @@ int	main(int argc, char **argv)
 			{
 				std::perror("Can't open output file");
 				input.close();
-				return (EXIT_FAILURE);
+				return (1);
 			}
 			input.close();
 		}
 		else
 		{
 			std::perror("Can't open input file");
-			return (EXIT_FAILURE);
+			return (1);
 		}
-		return (EXIT_SUCCESS);
+		return (0);
 	}
-	return (EXIT_FAILURE);
+	return (1);
 }

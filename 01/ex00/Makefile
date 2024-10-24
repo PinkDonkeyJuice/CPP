@@ -7,8 +7,6 @@ OBJDIR = .obj
 
 FILES = main\
 	Zombie\
-	newZombie\
-	randomChump\
 
 SRC = $(FILES:=.cpp);
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
