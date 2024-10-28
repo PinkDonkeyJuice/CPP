@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 09:35:04 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/08/08 11:23:44 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/10/28 11:42:08 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
