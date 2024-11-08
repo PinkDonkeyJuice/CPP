@@ -25,6 +25,12 @@ Character::Character(const Character &ref) : _name(ref._name)
 {
     std::cout << "Character Copy Constructor called";
 	for (int i = 0; i < 4; i++)
+	{
+		if (ref._inventory[i] == NULL)
+			this->_inventory[i] = NULL;
+		else
+			this->_inventory[i] = 
+	}
 }
 
 Character &Character::operator=(const Character &ref)
