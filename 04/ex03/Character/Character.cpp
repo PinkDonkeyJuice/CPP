@@ -8,14 +8,23 @@ Character::Character()
     std::cout << "Character default constructor called" << std::endl;
 }
 
+Character::Character(std::string name)
+{
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
+	this->_name = name;
+    std::cout << "Character default constructor called" << std::endl;
+}
+
 Character::~Character()
 {
     std::cout << "Character destructor called" << std::endl;
 }
 
-Character::Character(const Character &ref)
+Character::Character(const Character &ref) : _name(ref._name)
 {
-     std::cout << "Character Copy Constructor called";
+    std::cout << "Character Copy Constructor called";
+	for (int i = 0; i < 4; i++)
 }
 
 Character &Character::operator=(const Character &ref)

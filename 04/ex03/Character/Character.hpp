@@ -8,10 +8,10 @@ class Character : public ICharacter
 private:
 	std::string _name;
 	AMateria	*_inventory[4];
-	AMateria	*_floor_materia[];
 
 public:
     Character();
+	Character(std::string name);
     Character(const  Character &copy);
     ~Character();
 
