@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:27:56 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/25 19:02:23 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/08 14:04:36 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ public:
 	Brain(const Brain &ref);
     ~Brain();
 
+	std::string	getIdea(int i);
+	void	brain_setIdea(int i, std::string idea);
 	Brain &operator=(Brain const &newBrain);
 };

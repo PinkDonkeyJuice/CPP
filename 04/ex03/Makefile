@@ -1,14 +1,15 @@
-NAME	= Animal
+NAME	= Materia
 
 CC		= c++
 FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = .obj
 
-CLASS_FILES = Animal\
-		Dog\
-		Cat\
-		Brain\
+CLASS_FILES = AMateria\
+			Ice\
+			Cure\
+			ICharacter\
+
 
 FILES = $(CLASS_FILES)\
 		main\

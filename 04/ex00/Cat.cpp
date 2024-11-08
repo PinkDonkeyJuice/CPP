@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 14:20:21 by gyvergni          #+#    #+#             */
+/*   Updated: 2024/11/08 14:20:25 by gyvergni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 Cat::Cat()
@@ -8,12 +20,13 @@ Cat::Cat()
 
 Cat::Cat(const Cat &ref)
 {
+	this->_type = ref._type;
 	std::cout << "Cat Copy constructor called" << std::endl;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat default constructor called" << std::endl;
+	std::cout << "Cat default destructor called" << std::endl;
 }
 
 void	Cat::makeSound() const

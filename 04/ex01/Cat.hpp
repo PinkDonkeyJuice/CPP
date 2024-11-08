@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:53:34 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/25 11:16:40 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/08 11:34:23 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class Cat : public Animal
     	Cat();
 		Cat(const Cat &ref);
    		~Cat();
-
+		
+		void	setIdea(int i, std::string idea);
+		void	getIdeas();
 		void	makeSound() const;
 		Cat &operator=(Cat const &newCat);
 };

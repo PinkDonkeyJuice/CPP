@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 14:51:35 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/08 10:36:05 by gyvergni         ###   ########.fr       */
+/*   Created: 2024/11/08 14:51:21 by gyvergni          #+#    #+#             */
+/*   Updated: 2024/11/08 14:58:14 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "AMateria.hpp"
 
-#pragma once
-
-class Animal
+AMateria::AMateria()
 {
-	protected:
-		std::string _type;
+	std::cout << "default constructor for AMateria called" << std::endl;
+}
 
-	public:
-   		Animal();
-		Animal(const Animal &ref);
-   	 	virtual ~Animal();
-
-		virtual void	makeSound() const;
-		std::string	getType() const;
-		Animal &operator=(Animal const &newAnimal);
-
-};
+AMateria::AMateria(const std::string type) : _type(type)
+{
+	std::cout << "AMateria constructor called of type " << type << std::endl;
+}

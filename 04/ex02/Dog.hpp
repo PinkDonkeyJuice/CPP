@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:56:51 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/25 19:03:41 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/08 14:06:34 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ public:
 	Dog(const Dog &ref);
     ~Dog();
 
+	void	setIdea(int i, std::string idea);
+	void	getIdeas();
 	void	makeSound() const;
 	Dog &operator=(Dog const &newDog);
 };

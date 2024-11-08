@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:06:29 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/24 15:24:36 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/08 10:37:02 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ std::cout << "Now the wrong cat: " << std::endl;
 wrongcat->makeSound();
 wrongmeta->makeSound();
 
+delete i, delete j, delete meta, delete wrongmeta, delete wrongcat;
 return 0;
 }

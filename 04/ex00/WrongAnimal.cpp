@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:10:06 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/27 10:57:42 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/08 10:31:34 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &ref)
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &ref)
 {
 	this->_type = ref._type;
+	return *this;
 }
 
 void	WrongAnimal::makeSound() const

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/08 14:21:39 by gyvergni          #+#    #+#             */
+/*   Updated: 2024/11/08 14:21:41 by gyvergni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 Cat::Cat() : Animal()
@@ -21,13 +33,32 @@ void	Cat::makeSound() const
 Cat &Cat::operator=(Cat const &newCat)
 {
 	this->_type = newCat._type;
+	delete(this->_brain);
 	this->_brain = new Brain();
 	*this->_brain = *newCat._brain;
+	std::cout << "Cat assignement operator called" << std::endl;
 	return (*this);
 }
 
 Cat::Cat(const Cat &ref) : Animal()
 {
 	this->_type = ref.getType();
-	std::cout << "Cat copy constructor called";
+	this->_brain = new Brain();
+	*this->_brain = *ref._brain;
+	std::cout << "Cat copy constructor called" << std::endl;
+}
+
+void	Cat::setIdea(int i, std::string idea)
+{
+	this->_brain->brain_setIdea(i, idea);
+}
+
+void	Cat::getIdeas()
+{
+	int i = 0;
+	while (this->_brain->getIdea(i).length() > 0)
+	{
+		std::cout << this->_brain->getIdea(i) << std::endl;
+		i++;
+	}
 }

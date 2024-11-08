@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:51:35 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/25 12:34:02 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/08 11:54:46 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

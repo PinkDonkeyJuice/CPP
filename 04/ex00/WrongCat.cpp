@@ -8,6 +8,7 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat(const WrongCat &ref)
 {
+	this->_type = ref._type;
 	std::cout << "WrongCat copy constructor called" << std::endl;
 }
 
@@ -18,7 +19,9 @@ WrongCat::~WrongCat()
 
 WrongCat &WrongCat::operator=(const WrongCat &ref)
 {
+	this->_type = ref._type;
 	std::cout << "WrongCat copy constructor called" << std::endl;
+	return *this;
 }
 
 void WrongCat::makeSound() const
