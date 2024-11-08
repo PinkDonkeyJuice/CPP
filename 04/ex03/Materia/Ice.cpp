@@ -12,12 +12,13 @@ Ice::~Ice()
 
 Ice::Ice(const Ice &ref)
 {
-     std::cout << "Ice Copy Constructor called";
+    std::cout << "Ice Copy Constructor called";
+	
 }
 
 Ice &Ice::operator=(const Ice &ref)
 {
-
+	*this = ref;
 }
 
 AMateria* clone()
@@ -27,5 +28,5 @@ AMateria* clone()
 
 void	use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

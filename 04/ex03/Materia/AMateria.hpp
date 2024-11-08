@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:19:51 by gyvergni          #+#    #+#             */
-/*   Updated: 2024/11/08 15:01:46 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:27:01 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "iostream"
 #include "cstdlib"
+#include "../Character/ICharacter.hpp"
 
 class AMateria
 {
