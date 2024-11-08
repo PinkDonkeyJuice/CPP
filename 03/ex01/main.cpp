@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:02:15 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 18:01:07 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 15:43:13 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ int	main(void)
 	ScavTrap Zemmour("Zemmour");
 	Melanchon.attack("Zemmour");
 	Zemmour.takeDamage(0);
+	Melanchon.takeDamage(20);
+	Zemmour.attack("Melanchon");
+	Melanchon.takeDamage(20);
+	Zemmour.attack("Melanchon");
+	Melanchon.takeDamage(20);
+	Zemmour.attack("Melanchon");
+	Melanchon.takeDamage(20);
+	Zemmour.attack("Melanchon");
+	Melanchon.takeDamage(20);
+	Zemmour.attack("Melanchon");
+	Melanchon.takeDamage(20);
+	Zemmour.attack("Melanchon");
+	Melanchon.takeDamage(20);
+	Zemmour.attack("Melanchon");
+	Melanchon.takeDamage(20);
 	Zemmour.attack("Melanchon");
 	Zemmour.attack("Melanchon");
 	Zemmour.attack("Melanchon");
@@ -25,14 +40,8 @@ int	main(void)
 	Zemmour.attack("Melanchon");
 	Zemmour.attack("Melanchon");
 	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Melanchon.takeDamage(0);
+	Melanchon.takeDamage(20);
 	Melanchon.beRepaired(69);
+	Melanchon.takeDamage(69);
 	Melanchon.guardGate();
 }

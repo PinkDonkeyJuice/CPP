@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:44:08 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/27 10:40:51 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 16:05:59 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _HP(10), _EP(10), _AD(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->_Name = "default";
 }
 
-ClapTrap::ClapTrap(std::string Name)
+ClapTrap::ClapTrap(std::string Name): _HP(10), _EP(10), _AD(0)
 {
 	std::cout << "Constructor called for " << Name << std::endl;
 	this->_Name = Name;
@@ -29,15 +29,17 @@ ClapTrap::~ClapTrap()
 	std::cout << "Destructor called for " << this->_Name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &ref)
+ClapTrap::ClapTrap(const ClapTrap &ref) :_Name(ref._Name + ".copy"), _HP(ref._HP), _EP(ref._EP), _AD(ref._AD)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_Name = ref._Name;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &ref)
 {
-	this->_Name = ref._Name;
+	std::cout << "Copy assignement constructor called" << std::endl;
+	this->_HP = ref._HP;
+	this->_EP = ref._EP;
+	return *this;
 }
 
 void	ClapTrap::attack(const std::string& target)
@@ -69,6 +71,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_HP > 0 && this->_EP > 0)
 	{
+		this->_HP += amount;
 		std::cout << this->_Name << " repaires " << amount << " HP!" << std::endl;
 	}
 	else if (this->_HP == 0)

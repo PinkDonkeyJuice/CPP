@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 16:04:49 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/18 21:06:40 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 11:23:12 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

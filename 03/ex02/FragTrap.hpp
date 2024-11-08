@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:04:59 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/27 10:45:36 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/08 10:21:05 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@ class FragTrap : public ClapTrap
 {
 	private:
 		std::string _Name;
-		unsigned int	_HP = 100;
-		unsigned int	_EP = 100;
-		unsigned int	_AD = 30;
-
 	public:
 		FragTrap();
 		FragTrap(const FragTrap &ref);

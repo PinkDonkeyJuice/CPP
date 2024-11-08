@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 17:21:19 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/18 20:21:29 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 10:18:57 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Fixed::~Fixed(void)
 Fixed &Fixed::operator=(const Fixed &src)
 {
 	std::cout << "Copy assignement operator called" << std::endl;
-	this->_fpvalue = src.getRawBits();
+	this->_fpvalue = src._fpvalue;
 	return (*this);
 }
 

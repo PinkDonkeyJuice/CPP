@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:39:25 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/27 10:48:14 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 15:32:38 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,16 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string _Name;
-		unsigned int	_HP = 10;
-		unsigned int	_EP = 10;
-		unsigned int	_AD = 0;
-
+		unsigned int	_HP;
+		unsigned int	_EP;
+		unsigned int	_AD;
 	public:
 		ClapTrap();
 		ClapTrap(const ClapTrap &ref);
 		ClapTrap(std::string Name);
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		ClapTrap &operator=(const ClapTrap &ref);
 		void	attack(const std::string& target);

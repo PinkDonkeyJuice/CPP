@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:02:15 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/19 17:13:19 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 14:27:49 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int	main(void)
 	Zemmour.attack("Melanchon");
 	Zemmour.attack("Melanchon");
 	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
-	Zemmour.attack("Melanchon");
+	Zemmour.beRepaired(69);
+	ClapTrap Bardella(Zemmour);
+	Bardella.attack("Melanchon");
 	Melanchon.takeDamage(0);
+	Melanchon.beRepaired(69);
+	Melanchon.takeDamage(10);
 	Melanchon.beRepaired(69);
 }

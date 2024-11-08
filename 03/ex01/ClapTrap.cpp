@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 16:44:08 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/27 10:41:04 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 16:06:06 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _HP(10), _EP(10), _AD(10)
 {
 	std::cout << "Default ClapTrap constructor called" << std::endl;
 	this->_Name = "default";
@@ -29,15 +29,17 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap destructor called for " << this->_Name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &ref)
+ClapTrap::ClapTrap(const ClapTrap &ref) : _Name(ref._Name + ".copy"), _HP(ref._HP), _EP(ref._EP), _AD(ref._AD)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_Name = ref._Name;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &ref)
 {
-	this->_Name = ref._Name;
+	std::cout << "Copy assignement constructor called" << std::endl;
+	this->_HP = ref._HP;
+	this->_EP = ref._EP;
+	return *this;
 }
 
 void	ClapTrap::attack(const std::string& target)
@@ -71,7 +73,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		std::cout << this->_Name << " repaires " << amount << " HP!" << std::endl;
 	}
-	else if (this->_HP == 0)
+	else if (this->_HP <= 0)
 		std::cout << this->_Name << " can't repair because it has no HP left" << std::endl;
 	else
 		std::cout << this->_Name << " can't repair because it has no energy left" << std::endl;

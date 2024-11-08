@@ -1,23 +1,26 @@
-NAME	= serializer
+NAME	= DiamondTrap
 
 CC		= c++
 FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = .obj
 
-CLASS_FILES = Serializer
-
-FILES = $(CLASS_FILES)\
-		main\
+FILES = main\
+		ClapTrap\
+		ScavTrap\
+		FragTrap\
+		DiamondTrap\
 
 SRC = $(FILES:=.cpp);
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
-HEADER_FILES = $(CLASS_FILES:=.hpp)
+HEADER = ClapTrap.hpp\
+		ScavTrap.hpp\
+		FragTrap.hpp\
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER_FILES)
+$(NAME): $(OBJ) $(HEADER)
 	$(CC) $(OBJ) -o $(NAME)
 
 $(OBJDIR)/%.o: %.cpp $(HEADER)

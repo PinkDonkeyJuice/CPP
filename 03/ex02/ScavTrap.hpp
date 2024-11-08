@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:25:24 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/09/27 10:47:05 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/07 15:51:16 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@
 class ScavTrap : public ClapTrap
 {
 	private:
-		std::string _Name;
-		unsigned int	_HP = 100;
-		unsigned int	_EP = 50;
-		unsigned int	_AD = 20;
-
+		bool _is_guarding;
+	
 	public:
 		ScavTrap();
 		ScavTrap(const ScavTrap &ref);

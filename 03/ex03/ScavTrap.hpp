@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 17:25:24 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/07 15:48:24 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:51:37 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 #include <stdlib.h>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+#pragma once
+
+class ScavTrap : virtual public ClapTrap
 {
 	private:
 		bool _is_guarding;
-
+	
 	public:
 		ScavTrap();
 		ScavTrap(const ScavTrap &ref);
