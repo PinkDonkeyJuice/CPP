@@ -21,21 +21,23 @@ Character::~Character()
     std::cout << "Character destructor called" << std::endl;
 }
 
-Character::Character(const Character &ref) : _name(ref._name)
+Character::Character(const Character &ref)
 {
-    std::cout << "Character Copy Constructor called";
+    *this = ref;
+}
+
+Character &Character::operator=(const Character &ref)
+{
+	this->_name = ref._name;
 	for (int i = 0; i < 4; i++)
 	{
 		if (ref._inventory[i] == NULL)
 			this->_inventory[i] = NULL;
 		else
+			delete this->_inventory[i];
+		if (ref._inventory[i])
 			this->_inventory[i] = 
 	}
-}
-
-Character &Character::operator=(const Character &ref)
-{
-
 }
 
 std::string const & Character::getName() const

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:19:51 by gyvergni          #+#    #+#             */
-/*   Updated: 2024/11/08 16:27:01 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/09 15:52:15 by pinkdonkeyj      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "iostream"
 #include "cstdlib"
-#include "../Character/ICharacter.hpp"
+#include "ICharacter.hpp"
 
 class AMateria
 {
