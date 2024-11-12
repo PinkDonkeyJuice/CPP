@@ -10,7 +10,7 @@ Ice::~Ice()
     std::cout << "Ice destructor called" << std::endl;
 }
 
-Ice::Ice(const Ice &ref)
+Ice::Ice(const Ice &ref) : AMateria(ref)
 {
     std::cout << "Ice Copy Constructor called";
 	
@@ -18,15 +18,17 @@ Ice::Ice(const Ice &ref)
 
 Ice &Ice::operator=(const Ice &ref)
 {
-	*this = ref;
+	if (this != &ref)
+		*this = ref;
+	return *this;
 }
 
-AMateria* clone()
+AMateria* Ice::clone() const
 {
 	return (new Ice());
 }
 
-void	use(ICharacter& target)
+void	Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

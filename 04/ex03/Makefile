@@ -5,28 +5,35 @@ FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = .obj
 
+SRC_DIR = src
+
+HEADER_DIR = include
+
 CLASS_FILES = AMateria\
 			Ice\
 			Cure\
-			ICharacter\
+			Character\
+			MateriaSource\
 
 
-FILES = $(CLASS_FILES)\
-		main\
+SRC_FILES = $(addprefix $(SRC_DIR)/, $(CLASS_FILES))\
+		$(SRC_DIR)/main\
 
-SRC = $(FILES:=.cpp);
-OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
+SRC = $(SRC_FILES:=.cpp)
+OBJ = $(addprefix $(OBJDIR)/, $(notdir $(SRC_FILES:=.o)))
 
-HEADER_FILES = $(CLASS_FILES:=.hpp)
+HEADER_FILES = $(addprefix $(HEADER_DIR)/, $(CLASS_FILES:=.hpp))\
+				$(HEADER_DIR)/ICharacter.hpp\
+				$(HEADER_DIR)/IMateriaSource.hpp\
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER_FILES)
 	$(CC) $(OBJ) -o $(NAME)
 
-$(OBJDIR)/%.o: %.cpp $(HEADER)
-	@mkdir -p $(dir $@)
-	@$(CC) $(FLAGS) -c $< -o $@
+$(OBJDIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_FILES)
+	@mkdir -p $(OBJDIR)
+	$(CC) $(FLAGS) -I$(HEADER_DIR) -c $< -o $@
 
 clean:
 	rm -rf $(OBJDIR)

@@ -12,9 +12,9 @@ public:
     Ice(const  Ice &copy);
     ~Ice();
 
-	AMateria* clone() const;
+	virtual AMateria* clone() const;
     Ice &operator=(const  Ice &src);
-	void use(ICharacter& target);
+	virtual void use(ICharacter& target);
 };
 
 #endif

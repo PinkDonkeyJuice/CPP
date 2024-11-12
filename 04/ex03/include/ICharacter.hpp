@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include "AMateria.hpp"
 
+class AMateria;
+
 class ICharacter
 {
 	public:
