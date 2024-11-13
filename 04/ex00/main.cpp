@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:06:29 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/08 10:37:02 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:25:26 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 
 int main()
 {
-const Animal* meta = new Animal();
-const Animal* j = new Dog();
-const Animal* i = new Cat();
+const Animal* animal = new Animal();
+const Animal* ruffus = new Dog();
+const Animal* mouchette = new Cat();
 
-const WrongAnimal* wrongmeta = new WrongAnimal();
+const WrongAnimal* wronganimal = new WrongAnimal();
 const WrongAnimal* wrongcat = new WrongCat();
 
-std::cout << j->getType() << " " << std::endl;
-std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
-j->makeSound();
-meta->makeSound();
+std::cout << ruffus->getType() << " " << std::endl;
+std::cout << mouchette->getType() << " " << std::endl;
+ruffus->makeSound(); //will output the cat sound!
+mouchette->makeSound();
+animal->makeSound();
 
 std::cout << "Now the wrong cat: " << std::endl;
 wrongcat->makeSound();
-wrongmeta->makeSound();
+wronganimal->makeSound();
 
-delete i, delete j, delete meta, delete wrongmeta, delete wrongcat;
+delete ruffus, delete mouchette, delete animal, delete wronganimal, delete wrongcat;
 return 0;
 }

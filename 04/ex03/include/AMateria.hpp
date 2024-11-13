@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:19:51 by gyvergni          #+#    #+#             */
-/*   Updated: 2024/11/12 16:10:15 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:45:44 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AMateria
 		AMateria	&operator=(const AMateria &src);
 		virtual ~AMateria();
 
-		std::string const & getType() const; //Returns the materia type
+		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 };

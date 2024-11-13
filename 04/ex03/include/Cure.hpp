@@ -10,7 +10,7 @@ private:
 public:
     Cure();
     Cure(const  Cure &copy);
-    ~Cure();
+    virtual ~Cure();
 
 	virtual AMateria* clone() const;
     Cure &operator=(const  Cure &src);

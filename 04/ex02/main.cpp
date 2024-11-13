@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:06:29 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/08 14:06:39 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 11:57:59 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,5 @@ int main()
 	std::cout << "assignement operator" << std::endl;
 	*Ruffus = JeanMich;
 	Ruffus->getIdeas();
+	delete Ruffus, delete Tom;
 }

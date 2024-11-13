@@ -13,11 +13,11 @@ Ice::~Ice()
 Ice::Ice(const Ice &ref) : AMateria(ref)
 {
     std::cout << "Ice Copy Constructor called";
-	
 }
 
 Ice &Ice::operator=(const Ice &ref)
 {
+	this->_type = ref._type;
 	if (this != &ref)
 		*this = ref;
 	return *this;
@@ -25,7 +25,7 @@ Ice &Ice::operator=(const Ice &ref)
 
 AMateria* Ice::clone() const
 {
-	return (new Ice());
+	return (new Ice(*this));
 }
 
 void	Ice::use(ICharacter &target)

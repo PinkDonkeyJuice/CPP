@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:07:39 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/08 14:06:37 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:40:10 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	Dog::makeSound() const
 
 Dog &Dog::operator=(Dog const &newDog)
 {
+	delete this->_brain;
 	this->_type = newDog.getType();
 	this->_brain = new Brain();
 	*this->_brain = *newDog._brain;
@@ -41,9 +42,8 @@ Dog &Dog::operator=(Dog const &newDog)
 
 Dog::Dog(const Dog &ref) : Animal()
 {
-	this->_type = ref.getType();
-	this->_brain = new Brain();
-	*this->_brain = *ref._brain;
+	if (this != &ref)
+		*this = ref;
 	std::cout << "Dog copy constructor called" << std::endl;
 }
 

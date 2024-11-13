@@ -28,7 +28,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &ref)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (ref._source[i])
+		if (this->_source[i])
 			delete this->_source[i];
 		if (ref._source[i] == NULL)
 			this->_source[i] = NULL;

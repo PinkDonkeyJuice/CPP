@@ -10,7 +10,7 @@ private:
 public:
     Ice();
     Ice(const  Ice &copy);
-    ~Ice();
+    virtual ~Ice();
 
 	virtual AMateria* clone() const;
     Ice &operator=(const  Ice &src);

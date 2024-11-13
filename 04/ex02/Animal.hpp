@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:51:35 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/08 14:13:56 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:37:16 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ class Animal
 		virtual void	makeSound() const = 0;
 		virtual std::string	getType() const;
 		Animal &operator=(Animal const &src);
-
 };

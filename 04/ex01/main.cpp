@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:06:29 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/08 13:56:20 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:33:09 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
 		delete(pets[i]);
 	}
 	std::cout << std::endl;
+	
 	//Deep copy test
 	Cat *Tom = new Cat();
 	
@@ -63,4 +64,5 @@ int main()
 	std::cout << "assignement operator" << std::endl;
 	*Ruffus = JeanMich;
 	Ruffus->getIdeas();
+	delete Ruffus, delete Tom;
 }

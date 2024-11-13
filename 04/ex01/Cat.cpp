@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:21:11 by gyvergni          #+#    #+#             */
-/*   Updated: 2024/11/08 14:21:12 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:33:51 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ Cat &Cat::operator=(Cat const &newCat)
 
 Cat::Cat(const Cat &ref) : Animal()
 {
+	delete this->_brain;
 	this->_type = ref.getType();
 	this->_brain = new Brain();
 	*this->_brain = *ref._brain;

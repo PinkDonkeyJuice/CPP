@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 14:21:39 by gyvergni          #+#    #+#             */
-/*   Updated: 2024/11/08 14:21:41 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:39:40 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,8 @@ Cat &Cat::operator=(Cat const &newCat)
 
 Cat::Cat(const Cat &ref) : Animal()
 {
-	this->_type = ref.getType();
-	this->_brain = new Brain();
-	*this->_brain = *ref._brain;
+	if (this != &ref)
+		*this = ref;
 	std::cout << "Cat copy constructor called" << std::endl;
 }
 
