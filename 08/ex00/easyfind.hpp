@@ -2,20 +2,7 @@
 
 #include <cstdlib>
 #include <iostream>
-
-template<typename T>
-int easyfind(T type, int n)
-{
-	int i;
-
-	while (type[i] != n)
-	{
-		i++;
-	}
-	if (i == type.end())
-		throw(CannotFindError());
-	return (i);
-}
+#include <algorithm>
 
 class CannotFindError : public std::exception
 {
@@ -26,4 +13,15 @@ class CannotFindError : public std::exception
 const char *CannotFindError::what() const throw()
 {
 	return ("Couldn't find requested int in the container\n");
+}
+
+template<typename T>
+void easyfind(T container, int n)
+{
+	typename T::iterator i;
+
+	i = std::find(container.begin(), container.end(), n);
+	if (i == container.end())
+		throw(CannotFindError());
+	std::cout << "Found " << *i << std::endl;
 }

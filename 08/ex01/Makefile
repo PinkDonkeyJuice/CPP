@@ -1,4 +1,4 @@
-NAME	= easyfind
+NAME	= span
 
 CC		= c++
 FLAGS	= -Wall -Werror -Wextra -std=c++98
@@ -6,12 +6,13 @@ FLAGS	= -Wall -Werror -Wextra -std=c++98
 OBJDIR = .obj
 
 FILES = main\
+		Span
 
 SRC = main.cpp\
 
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
-HEADER_FILES = easyfind.hpp
+HEADER_FILES = Span.hpp
 
 all: $(NAME)
 

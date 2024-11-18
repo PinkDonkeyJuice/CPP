@@ -13,7 +13,7 @@ M	min(M a, M b)
 {
 	if (a < b)
 		return (a);
-	return ((((((((((((((((((((((((((((((((((((((b))))))))))))))))))))))))))))))))))))));
+	return (b);
 }
 
 template<typename W>
