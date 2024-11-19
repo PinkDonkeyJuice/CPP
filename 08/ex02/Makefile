@@ -1,18 +1,17 @@
-NAME	= span
+NAME	= mutantstack
 
 CC		= c++
 FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = .obj
 
-FILES = main\
-		Span
+FILES = main
 
 SRC = main.cpp\
 
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
-HEADER_FILES = Span.hpp
+HEADER_FILES = MutantStack.hpp
 
 all: $(NAME)
 
