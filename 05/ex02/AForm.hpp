@@ -32,7 +32,7 @@ public:
     AForm();
 	AForm(const std::string name, const int sign_grade, const int exec_grade);
     AForm(const  AForm &src);
-    ~AForm();
+    virtual ~AForm();
 
 	//Exceptions
 
@@ -66,7 +66,6 @@ public:
 	bool			getSigned() const;
 	int		getSignGrade() const;
 	int		getExecGrade() const;
-
 };
 
 std::ostream &operator<<(std::ostream &o, AForm *a);

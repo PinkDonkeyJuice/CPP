@@ -104,6 +104,7 @@ void	ScalarConverter::convert(void)
 
 void	ScalarConverter::printOutput(void) const
 {
+	//char
 	if (this->_type != "naninf")
 	{
 		if (std::isprint(this->_char_val))
@@ -114,15 +115,22 @@ void	ScalarConverter::printOutput(void) const
 	else
 		std::cout << "char: Impossible" << std::endl;
 
+
+	//int
 	if (this->_type != "naninf")
 	{
 		std::cout << "int: " << this->_int_val << std::endl;
 	}
 	else
 		std::cout << "int: Impossible" << std::endl;
+	
+	//float
 	if (this->_type != "naninf")
 	{
-		std::cout << "float: " << this->_float_val << "f" <<std::endl;
+		std::cout << "float: " << this->_float_val;
+		if (this->_input.find('.') == std::string::npos || this->_input.find(".0") != std::string::npos)
+			std::cout << ".0";
+		std::cout << "f" << std::endl;
 	}
 	else
 	{
@@ -133,9 +141,14 @@ void	ScalarConverter::printOutput(void) const
 		else
 			std::cout << "float: +inff" << std::endl;
 	}
+
+	//double
 	if (this->_type != "naninf")
 	{
-		std::cout << "double: " << this->_double_val << std::endl;
+		std::cout << "double: " << this->_double_val;
+		if (this->_input.find('.') == std::string::npos || this->_input.find(".0") != std::string::npos)
+			std::cout << ".0";
+		std::cout << std::endl;
 	}
 	else
 	{
@@ -160,26 +173,29 @@ void ScalarConverter::fromInt(void)
 		throw(ScalarConverter::ConversionErrorException());
 		return ;
 	}
-	this->_int_val = static_cast<int>(std::atoi(this->_input.c_str()));
-	this->_double_val = static_cast<double>(this->_int_val);
-	this->_float_val = static_cast<float>(this->_int_val);
-	this->_char_val = static_cast<char>(this->_int_val);
+	fromDouble();
 }
 
 void	ScalarConverter::fromFloat(void)
 {
 	char *pend;
 
-	this->_float_val = static_cast<float>(std::strtof(this->_input.c_str(), &pend));
+	this->_input = this->_input.substr(0, std::strlen(this->_input.c_str()) - 1);
+	this->_double_val = static_cast<double>(std::strtod(this->_input.c_str(), &pend));
 	if (*pend != '\0')
 	{
 		std::cout << "Float value out of range" << std::endl;
 		throw(ScalarConverter::ConversionErrorException());
 		return ;
 	}
-	this->_int_val = static_cast<int>(this->_float_val);
-	this->_double_val = static_cast<double>(this->_float_val);
-	this->_char_val = static_cast<float>(this->_float_val);
+	this->_float_val = static_cast<float>(this->_double_val);
+	if (this->_double_val >= 2147483648.0 || this->_double_val <= -2147483649.0)
+	{
+		throw(ScalarConverter::ConversionErrorException());
+	}
+	else
+		this->_int_val = static_cast<int>(this->_double_val);
+	this->_char_val = static_cast<double>(this->_double_val);
 }
 
 void	ScalarConverter::fromDouble(void)
@@ -194,7 +210,12 @@ void	ScalarConverter::fromDouble(void)
 		return ;
 	}
 	this->_float_val = static_cast<float>(this->_double_val);
-	this->_int_val = static_cast<int>(this->_double_val);
+	if (this->_double_val >= 2147483648.0 || this->_double_val <= -2147483649.0)
+	{
+		throw(ScalarConverter::ConversionErrorException());
+	}
+	else
+		this->_int_val = static_cast<int>(this->_double_val);
 	this->_char_val = static_cast<double>(this->_double_val);
 }
 

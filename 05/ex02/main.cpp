@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 17:05:16 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/10/15 00:49:13 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/11/27 14:55:13 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,70 +19,26 @@
 
 int main(void)
 {
-	Bureaucrat *Steve = new Bureaucrat("Steve", 100);
+	Bureaucrat *Steve = new Bureaucrat("Steve", 1);
 
 	AForm *pres = new PresidentialPardonForm("Eric");
 	AForm *shrub = new ShrubberyCreationForm("Home");
 	AForm *robot = new RobotomyRequestForm("Michael");
 
-	try 
-	{
-		(*pres).beSigned(*Steve);
-	}
-	catch (AForm::GradeTooLowException &e)
-	{
-		std::cerr << "\033[33m" << Steve->getName() << " was not able to sign the Form : " << e.what() << "\033[0m" << std::endl;
-	}
-	try
-	{
-		Steve->executeForm(*pres);
-	}
-	catch (AForm::FormNotSignedException &e)
-	{
-		std::cerr << "\033[33m" << Steve->getName() << " was not able to execute the Form " << Steve->getName() << ": " << e.what() << "\033[0m" << std::endl;
-	}
+	Bureaucrat *Rick = new Bureaucrat(*Steve);
+	Steve->signForm(*pres);
 	std::cout << std::endl;
-	try
-	{
-		(*shrub).beSigned(*Steve);
-	}
-	catch (AForm::GradeTooLowException &e)
-	{
-		std::cerr << "\033[33m" << Steve->getName() << " was not able to sign the Form : " << e.what() << "\033[0m" << std::endl;
-	}
-	try
-	{
-		Steve->executeForm(*shrub);
-	}
-	catch (AForm::FormNotSignedException &e)
-	{
-		std::cerr << "\033[33m" << Steve->getName() << " was not able to execute the Form " << Steve->getName() << ": " << e.what() << "\033[0m" << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		(*robot).beSigned(*Steve);
-	}
-	catch (AForm::GradeTooLowException &e)
-	{
-		std::cerr << "\033[33m" << Steve->getName() << " was not able to sign the Form : " << e.what() << "\033[0m" << std::endl;
-	}
-	try
-	{
-		Steve->executeForm(*robot);
-	}
-	catch (AForm::FormNotSignedException &e)
-	{
-		std::cerr << "\033[33m" << Steve->getName() << " was not able to execute the Form " << Steve->getName() << ": " << e.what() << "\033[0m" << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Steve->executeForm(*robot);
-	}
-	catch (AForm::FormNotSignedException &e)
-	{
-		std::cerr << "\033[33m" << Steve->getName() << " was not able to execute the Form " << Steve->getName() << ": " << e.what() << "\033[0m" << std::endl;
-	}
-	std::cout << std::endl;
+	Steve->executeForm(*pres);
+	Steve->signForm(*shrub);
+	*shrub = *robot;
+	Steve->executeForm(*shrub);
+	Steve->signForm(*shrub);
+	Steve->executeForm(*shrub);
+	Steve->signForm(*robot);
+	Steve->executeForm(*robot);
+	delete Steve;
+	delete Rick;
+	delete pres;
+	delete shrub;
+	delete robot;
 }
