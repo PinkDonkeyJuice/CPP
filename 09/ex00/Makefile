@@ -5,13 +5,14 @@ FLAGS	= -Wall -Werror -Wextra -std=c++98
 
 OBJDIR = .obj
 
-FILES = main
+FILES = main\
+		BitcoinExchange\
 
 SRC = main.cpp\
 
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
-HEADER_FILES = BitcoinExchange.hpp
+HEADER_FILES = Span.hpp
 
 all: $(NAME)
 
