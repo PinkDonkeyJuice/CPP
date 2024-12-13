@@ -4,7 +4,7 @@ int	main(int argc, char **argv)
 {
 	BitcoinExchange btc;
 
-	if (argc != 1)
+	if (argc != 2)
 	{
 		std::cout << "Need one argument: the input file" << std::endl;
 	}

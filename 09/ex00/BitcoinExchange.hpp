@@ -16,10 +16,10 @@ public:
     BitcoinExchange(const  BitcoinExchange &copy);
     ~BitcoinExchange();
 
-	bool	loadCSV(const std::string db_name);
+	bool	loadCSV(std::string db_name);
 	void	calc_values(const std::string infile_name);
 	double find_closest_value(const std::string date);
-	bool check_date(const std::string date, size_t i);
+	void check_date(const std::string date);
 	double	convert_amount(const std::string str_amount);
 
 

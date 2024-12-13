@@ -12,7 +12,7 @@ SRC = main.cpp\
 
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
-HEADER_FILES = Span.hpp
+HEADER_FILES = BitcoinExchange.hpp
 
 all: $(NAME)
 

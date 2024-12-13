@@ -2,6 +2,7 @@
 
 BitcoinExchange::BitcoinExchange()
 {
+	std::cout << "hello" << std::endl;
     std::cout << "BitcoinExchange default constructor called" << std::endl;
 }
 
@@ -12,20 +13,28 @@ BitcoinExchange::~BitcoinExchange()
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &ref)
 {
-     std::cout << "BitcoinExchange Copy Constructor called";
+	*this = ref;
+	std::cout << "BitcoinExchange Copy Constructor called";
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &ref)
 {
+	std::map<std::string, double>::const_iterator it = (ref.mp).begin();
 
+	while (it != ref.mp.end())
+	{
+		this->mp[it->first] = it->second;
+		it++;
+	}
+	return *this;
 }
 
-bool	BitcoinExchange::loadCSV(const std::string db_name)
+bool	BitcoinExchange::loadCSV(std::string db_name)
 {
 	double value;
 	std::string line, date;
+	std::ifstream db_file(db_name.c_str());
 
-	std::ifstream db_file(db_name);
 	if (!db_file.is_open())
 	{
 		std::cerr << "Error opening data_base file" << std::endl;
@@ -43,7 +52,7 @@ bool	BitcoinExchange::loadCSV(const std::string db_name)
 	return true;
 }
 
-bool	BitcoinExchange::check_date(const std::string date, size_t i)
+void	BitcoinExchange::check_date(const std::string date)
 {
 	int day, month, year;
 
@@ -62,11 +71,13 @@ bool	BitcoinExchange::check_date(const std::string date, size_t i)
 
 double	BitcoinExchange::find_closest_value(const std::string date)
 {
+	std::map<std::string, double>::iterator it;
+
 	if (this->mp.empty())
 	{
 		throw(InvalidDateException());
 	}
-	auto it = this->mp.lower_bound(date);
+	it = this->mp.lower_bound(date);
 	if (it == this->mp.begin() && date <= it->first)
 		throw(InvalidDateException());
 	else if (it == this->mp.begin())
@@ -97,7 +108,7 @@ void	BitcoinExchange::calc_values(const std::string infile_name)
 	std::string line, date, seperator, str_amount;
 	double amount, value;
 
-	std::ifstream infile(infile_name);
+	std::ifstream infile(infile_name.c_str());
 	if (!infile.is_open())
 	{
 		std::cerr << "Error opening input file" << std::endl;
@@ -106,18 +117,15 @@ void	BitcoinExchange::calc_values(const std::string infile_name)
 	while (std::getline(infile, line))
 	{
 		i++;
-		std::istringstream ss(line);
-		std::getline(ss, date, ' ');
-		check_date(date, i);
-		std::getline(ss, seperator, ' ');
-		if (seperator != "|")
-		{
-			std::cerr << "Invalid input\nLine " << i << " : need 'date | value' format" << std::endl;
-			return ;
-		}
-		ss >> str_amount;
 		try
 		{
+			std::istringstream ss(line);
+			std::getline(ss, date, ' ');
+			check_date(date);
+			std::getline(ss, seperator, ' ');
+			if (seperator != "|")
+				throw(InvalidDateException());
+			ss >> str_amount;
 			amount = convert_amount(str_amount);
 			if (this->mp.count(date) <= 0)
 			{
