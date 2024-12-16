@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <sstream>
 
 class RPN
 {

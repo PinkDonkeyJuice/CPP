@@ -4,7 +4,7 @@ RPN::RPN() : _stack(), _expr()
 {
 };
 
-RPN::RPN(std::string input) : _expr(expr), _stack()
+RPN::RPN(std::string input) : _expr(input), _stack()
 {
 }
 
@@ -25,5 +25,9 @@ RPN	&RPN::operator=(const RPN &ref)
 
 void	RPN::parse_input(std::string input)
 {
+	std::string buffer;
 
+	std::istringstream ss(input);
+	std::getline(ss, buffer, ' ');
+	
 }
