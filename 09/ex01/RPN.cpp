@@ -26,8 +26,17 @@ RPN	&RPN::operator=(const RPN &ref)
 void	RPN::parse_input(std::string input)
 {
 	std::string buffer;
+	int			value;
 
 	std::istringstream ss(input);
 	std::getline(ss, buffer, ' ');
-	
+	if (!(value = atoi(buffer.c_str())))
+	{
+		throw(std::exception());
+	}
+	this->_stack.push(value);
+	while (std::getline(ss, buffer, ' '))
+	{
+		
+	}
 }
