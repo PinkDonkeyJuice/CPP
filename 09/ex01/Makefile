@@ -10,7 +10,7 @@ FILES = main\
 
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
-HEADER_FILES = BitcoinExchange.hpp
+HEADER_FILES = RPN.hpp
 
 all: $(NAME)
 
