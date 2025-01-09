@@ -44,11 +44,11 @@ void	RPN::do_op(std::string buffer)
 	if (buffer[0] == '/')
 	{
 		if (val1 == 0)
-			throw(std::exception());
+			throw(RPN::InvalidOperationException());
 		result = val2 / val1;
 	}
 	if (result > 2147483647 || result < -2147483648)
-		throw(std::exception());
+		throw(RPN::InvalidOperationException());
 	this->_stack.push(static_cast<int>(result));
 }		
 
@@ -60,21 +60,21 @@ void	RPN::calculate()
 
 	std::istringstream ss(input);
 	std::getline(ss, buffer, ' ');
-	if (!(value = std::atoi(buffer.c_str())))
+	if (!(value = std::atoi(buffer.c_str())) || (std::atol(buffer.c_str()) > 2147483647) || (std::atol(buffer.c_str()) < -2147483648))
 	{
-		throw(std::exception());
+		throw(RPN::InvalidInputException());
 	}
 	this->_stack.push(value);
 	while (std::getline(ss, buffer, ' '))
 	{
-		if (!(value = std::atoi(buffer.c_str())))
+		if (!(value = std::atoi(buffer.c_str())) || (std::atol(buffer.c_str()) > 2147483647) || (std::atol(buffer.c_str()) < -2147483648))
 		{
-			throw(std::exception());
+			throw(RPN::InvalidInputException());
 		}
 		this->_stack.push(value);
 		if (!std::getline(ss, buffer, ' '))
 		{
-			throw(std::exception());
+			throw(RPN::InvalidInputException());
 		}
 		do_op(buffer);
 	}

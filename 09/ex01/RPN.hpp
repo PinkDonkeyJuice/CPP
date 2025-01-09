@@ -8,6 +8,10 @@
 
 class RPN
 {
+	private:
+		std::stack<int> _stack;
+		std::string _expr;
+
 	public:
 		RPN();
 		~RPN();
@@ -16,8 +20,29 @@ class RPN
 		RPN &operator=(const RPN &ref);
 		void	calculate();
 		void	do_op(std::string buffer);
-	
-	private:
-		std::stack<int> _stack;
-		std::string _expr;
+
+		class InvalidOperationException: public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return("Invalid operation");
+				}
+		};
+		class InvalidInputException: public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return("Invalid Input");
+				}
+		};
+		class InvalidTypeException: public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return("Invalid operation");
+				}
+		};
 };
