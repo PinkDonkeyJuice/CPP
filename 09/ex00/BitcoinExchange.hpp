@@ -23,20 +23,39 @@ public:
 	double	convert_amount(const std::string str_amount);
 
 
-	class InvalidTypeException: public std::exception
+	class InvalidNumberException: public std::exception
 	{
 		public:
 			const char *what() const throw()
 			{
-				return("Amount type is invalid: Need float or positive int between 1 and 100");
+				return("Error: bad input => Need int or float between 0 and 1000");
 			}
 	};
-	class InvalidDateException: public std::exception
+	class InvalidFormatException: public std::exception
 	{
 		public:
 			const char *what() const throw()
 			{
-				return("Date is invalid: Need valid YYYY-MM-DD format");
+				return("Error: bad input => Need date | value");
+			}
+	};
+	
+	class InvalidDateException: public std::exception
+	{
+		private:
+			std::string _message;
+
+		public:
+			InvalidDateException(std::string date)
+			{
+				_message = "Error date is invalid: " + date  + " => Need valid YYYY-MM-DD format";
+			}
+			virtual ~InvalidDateException() throw()
+			{
+			}
+			const char *what() const throw()
+			{
+				return(_message.c_str());
 			}
 	};
 

@@ -60,14 +60,14 @@ void	RPN::calculate()
 
 	std::istringstream ss(input);
 	std::getline(ss, buffer, ' ');
-	if (!(value = std::atoi(buffer.c_str())) || (std::atol(buffer.c_str()) > 2147483647) || (std::atol(buffer.c_str()) < -2147483648))
+	if (!(value = std::atoi(buffer.c_str())) || (std::atol(buffer.c_str()) >= 10) || (std::atol(buffer.c_str()) <= 0))
 	{
 		throw(RPN::InvalidInputException());
 	}
 	this->_stack.push(value);
 	while (std::getline(ss, buffer, ' '))
 	{
-		if (!(value = std::atoi(buffer.c_str())) || (std::atol(buffer.c_str()) > 2147483647) || (std::atol(buffer.c_str()) < -2147483648))
+		if (!(value = std::atoi(buffer.c_str())) || (std::atol(buffer.c_str()) >= 10) || (std::atol(buffer.c_str()) <= 0))
 		{
 			throw(RPN::InvalidInputException());
 		}

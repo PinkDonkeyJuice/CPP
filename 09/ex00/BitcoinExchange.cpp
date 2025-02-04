@@ -2,19 +2,18 @@
 
 BitcoinExchange::BitcoinExchange()
 {
-	std::cout << "hello" << std::endl;
-    std::cout << "BitcoinExchange default constructor called" << std::endl;
+    //std::cout << "BitcoinExchange default constructor called" << std::endl;
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
-    std::cout << "BitcoinExchange destructor called" << std::endl;
+    //std::cout << "BitcoinExchange destructor called" << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &ref)
 {
 	*this = ref;
-	std::cout << "BitcoinExchange Copy Constructor called";
+	//std::cout << "BitcoinExchange Copy Constructor called";
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &ref)
@@ -57,7 +56,7 @@ void	BitcoinExchange::check_date(const std::string date)
 	int day, month, year;
 
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
-		throw(InvalidDateException());
+		throw(InvalidDateException(date));
 	std::istringstream daystream(date.substr(8,2));
 	std::istringstream monthstream(date.substr(5,2));
 	std::istringstream yearstream(date.substr(0,4));
@@ -66,7 +65,7 @@ void	BitcoinExchange::check_date(const std::string date)
 	monthstream >> month;
 	yearstream >> year;
 	if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2024)
-		throw(InvalidDateException());
+		throw(InvalidDateException(date));
 }
 
 double	BitcoinExchange::find_closest_value(const std::string date)
@@ -75,11 +74,11 @@ double	BitcoinExchange::find_closest_value(const std::string date)
 
 	if (this->mp.empty())
 	{
-		throw(InvalidDateException());
+		throw(InvalidDateException(date));
 	}
 	it = this->mp.lower_bound(date);
 	if (it == this->mp.begin() && date <= it->first)
-		throw(InvalidDateException());
+		throw(InvalidDateException(date));
 	else if (it == this->mp.begin())
 		return it->second;
 	if (it == this->mp.end() && date > it->first)
@@ -99,7 +98,7 @@ double	BitcoinExchange::convert_amount(const std::string str_amount)
 		return (static_cast<double>(int_amount));
 	if (floatstream >> float_amount && floatstream.eof() && float_amount >= 0 && float_amount <= 1000)
 		return (float_amount);
-	throw(InvalidTypeException());
+	throw(InvalidNumberException());
 }
 
 void	BitcoinExchange::calc_values(const std::string infile_name)
@@ -120,18 +119,19 @@ void	BitcoinExchange::calc_values(const std::string infile_name)
 		try
 		{
 			std::istringstream ss(line);
-			std::getline(ss, date, ' ');
+			if (!std::getline(ss, date, ' ') || date.empty())
+				throw(InvalidFormatException());
 			check_date(date);
-			std::getline(ss, seperator, ' ');
-			if (seperator != "|")
-				throw(InvalidDateException());
-			ss >> str_amount;
+			if (!std::getline(ss, seperator, ' ') || seperator != "|")
+				throw(InvalidFormatException());
+			if (!(ss >> str_amount) || !ss.eof())
+				throw(InvalidFormatException());
 			amount = convert_amount(str_amount);
 			if (this->mp.count(date) <= 0)
 			{
 				value = this->find_closest_value(date);
 			}
-			std::cout << amount * value << std::endl;
+			std::cout << date << ": " << amount << " => " << amount * value << std::endl;
 		}
 		catch(const std::exception& e)
 		{
