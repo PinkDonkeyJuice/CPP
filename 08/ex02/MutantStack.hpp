@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pinkdonkeyjuice <pinkdonkeyjuice@studen    +#+  +:+       +#+        */
+/*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:48:23 by pinkdonkeyj       #+#    #+#             */
-/*   Updated: 2024/11/19 15:41:38 by pinkdonkeyj      ###   ########.fr       */
+/*   Updated: 2024/12/16 16:32:44 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class MutantStack : public std::stack<T>
 		}
 		reverse_iterator rbegin()
 		{
-			return this->c.rebgin();
+			return this->c.rbegin();
 		}
 		reverse_iterator rend()
 		{

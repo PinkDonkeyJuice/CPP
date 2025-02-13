@@ -16,11 +16,11 @@ HEADER_FILES = MutantStack.hpp
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER_FILES)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-$(OBJDIR)/%.o: %.cpp $(HEADER)
-	@mkdir -p $(dir $@)
-	@$(CC) $(FLAGS) -c $< -o $@
+$(OBJDIR)/%.o: %.cpp $(HEADER_FILES)
+	mkdir -p $(dir $@)
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJDIR)

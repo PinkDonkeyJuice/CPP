@@ -38,7 +38,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &ref)
 	return (*this);
 }
 
-std::string ScalarConverter::findType(const std::string input)
+std::string findType(const std::string input)
 {
 	size_t i = 0;
 	bool	has_point = false;
@@ -102,7 +102,7 @@ void	ScalarConverter::convert(void)
 	} */
 }
 
-void	ScalarConverter::printOutput(void) const
+void	printOutput(void)
 {
 	//char
 	if (this->_type != "naninf")
@@ -114,7 +114,6 @@ void	ScalarConverter::printOutput(void) const
 	}
 	else
 		std::cout << "char: Impossible" << std::endl;
-
 
 	//int
 	if (this->_type != "naninf")
@@ -128,7 +127,7 @@ void	ScalarConverter::printOutput(void) const
 	if (this->_type != "naninf")
 	{
 		std::cout << "float: " << this->_float_val;
-		if (this->_input.find('.') == std::string::npos || this->_input.find(".0") != std::string::npos)
+		if (this->_input.find('.') == std::string::npos || this->_input.find(".0f") != std::string::npos || this->_input.find(".0") == this->_input.length() - 2)
 			std::cout << ".0";
 		std::cout << "f" << std::endl;
 	}
@@ -146,7 +145,7 @@ void	ScalarConverter::printOutput(void) const
 	if (this->_type != "naninf")
 	{
 		std::cout << "double: " << this->_double_val;
-		if (this->_input.find('.') == std::string::npos || this->_input.find(".0") != std::string::npos)
+		if (this->_input.find('.') == std::string::npos || this->_input.find(".0f") != std::string::npos || this->_input.find(".0") == this->_input.length() - 2)
 			std::cout << ".0";
 		std::cout << std::endl;
 	}

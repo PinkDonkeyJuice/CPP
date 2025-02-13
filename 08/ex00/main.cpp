@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:12:16 by gyvergni          #+#    #+#             */
-/*   Updated: 2024/11/13 13:59:38 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:26:01 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(void)
 		easyfind(v, 6);
 		easyfind(v, 2);
 		easyfind(v, 11);
+		easyfind(v, 3);
 	}
 	catch(const std::exception& e)
 	{

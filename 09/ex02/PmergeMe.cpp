@@ -74,21 +74,26 @@ void PmergeMe::sort_list(std::list<int> *L)
 	std::list<int>::iterator	l = left.begin();
 	std::list<int>::iterator	r = right.begin();
 	std::list<int>::iterator	i = L->begin();
-
+	static int po = 0;
 	while ((l != left.end() || r != right.end()) && i != L->end())
 	{
 		if (r == right.end() || (l != left.end() && *l <= *r))
 		{
+			if (r != right.end())
+				po++;
 			*i = *l;
 			l++;
 		}
 		else if (l == left.end() || (r != right.end() && *l > *r))
 		{
+			if (l != left.end())
+				po++;
 			*i = *r;
 			r++;
 		}
 		i++;
 	}
+	std::cout << "HEREEEEEEEEEE : " << po << std::endl;
 }
 
 void	PmergeMe::sort_deque(std::deque<int> *D)

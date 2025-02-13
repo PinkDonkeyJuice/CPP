@@ -20,21 +20,41 @@ class RPN
 		RPN &operator=(const RPN &ref);
 		void	calculate();
 		void	do_op(std::string buffer);
+		bool	is_op(std::string buffer);
+		bool	is_num(std::string buffer);
 
 		class InvalidOperationException: public std::exception
 		{
+			private:
+				std::string _message;
 			public:
+				InvalidOperationException(std::string message)
+				{
+					_message = "Invalid operation: " + message;
+				}
+				virtual ~InvalidOperationException() throw()
+				{
+				}
 				const char *what() const throw()
 				{
-					return("Invalid operation");
+					return(_message.c_str());
 				}
 		};
 		class InvalidInputException: public std::exception
 		{
+			private:
+				std::string _message;
 			public:
+				InvalidInputException(std::string message)
+				{
+					_message = "Invalid input: " + message;
+				}
+				virtual ~InvalidInputException() throw()
+				{
+				}
 				const char *what() const throw()
 				{
-					return("Invalid Input");
+					return(_message.c_str());
 				}
 		};
 		class InvalidTypeException: public std::exception
@@ -43,6 +63,9 @@ class RPN
 				const char *what() const throw()
 				{
 					return("Invalid operation");
+				}
+				virtual ~InvalidTypeException() throw()
+				{
 				}
 		};
 };

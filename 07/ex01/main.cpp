@@ -11,9 +11,10 @@ void	ft_toupper(char &c)
 	c = std::toupper(c);
 }
 
-void	printc_array(char &c)
+template <typename T>
+void	print_array(T &type)
 {
-	std::cout << c << std::endl;
+	std::cout << type << std::endl;
 }
 
 void	printi_array(int &c)
@@ -27,8 +28,8 @@ int	main(void)
 	char str[] = {'a', 'b', 'c'};
 
 	iter(iarray, 5, increment);
-	iter(iarray, 5, printi_array);
+	iter(iarray, 5, print_array);
 
 	iter(str, 3, ft_toupper);
-	iter(str, 3, printc_array);
+	iter(str, 3, print_array);
 }

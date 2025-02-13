@@ -14,25 +14,13 @@
 class ScalarConverter
 {
 private:
-	std::string	_input;
-	std::string	_type;
-	int			_int_val;
-	double		_double_val;
-	float		_float_val;
-	char		_char_val;
-
-public:
     ScalarConverter();
 	ScalarConverter(const std::string input);
     ScalarConverter(const  ScalarConverter &copy);
     ~ScalarConverter();
-
-	void	fromInt(void);
-	void	fromChar(void);
-	void	fromDouble(void);
-	void	fromFloat(void);
-	void	printOutput(void) const;
     ScalarConverter &operator=(const  ScalarConverter &src);
+
+public:
 	void convert(void);
 	std::string findType(const std::string input);
 	std::string		getType();

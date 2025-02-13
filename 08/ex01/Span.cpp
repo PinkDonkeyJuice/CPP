@@ -6,7 +6,7 @@
 /*   By: gyvergni <gyvergni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:39:22 by gyvergni          #+#    #+#             */
-/*   Updated: 2024/11/18 11:41:57 by gyvergni         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:21:58 by gyvergni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,29 @@ int		Span::shortestSpan()
 {
 	std::vector<int> vec = this->_v;
 	int	shortest;
+	std::vector<int>::iterator it;
 
 	if (vec.size() < 2)
 		throw(Span::ToofewElementsException());
 	std::sort(vec.begin(), vec.end());
 	shortest = vec[1] - vec[0];
-	for (unsigned int i = 1; i < vec.size() - 1; i++)
+	for (it = vec.begin(); it < vec.end() - 1; it++)
 	{
-		if (vec[i + 1] - vec[i] < shortest)
-			shortest = vec[i + 1] - vec[i];
+		if (*(it + 1) - *it < shortest)
+			shortest = *(it + 1) - *it;
 	}
 	return shortest;
 }
 
 int	Span::longestSpan()
 {
-	int longest = 0;
+	int longest;
 	std::vector<int> vec = this->_v;
 
 	if (vec.size() < 2)
 		throw(Span::ToofewElementsException());
 	std::sort(vec.begin(), vec.end());
-	longest = vec[vec.size() - 1] - vec[0];
+	longest = *(vec.end() - 1) - *(vec.begin());
 	return longest;
 }
 

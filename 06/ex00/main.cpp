@@ -14,7 +14,12 @@
 
 int	main(int argc, char**argv)
 {
-	(void) argc;
+	if (argc <= 1)
+	{
+		std::cout << "Need an argument!" << std::endl;
+		return (1);
+	}
 	ScalarConverter *converter = new ScalarConverter(argv[1]);
 	delete(converter);
+	return (0);
 }
