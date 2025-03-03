@@ -1,7 +1,8 @@
 NAME	= PmergeMe
 
 CC		= c++
-FLAGS	= -Wall -Werror -Wextra -std=c++98
+FLAGS	= -Wall -Werror -Wextra
+-std=c++98
 
 OBJDIR = .obj
 
@@ -10,7 +11,7 @@ FILES = main\
 
 OBJ = $(addprefix $(OBJDIR)/, $(FILES:=.o))
 
-HEADER_FILES = PmergeMe.hpp
+HEADER_FILES = PmergeMe.hpp\
 
 all: $(NAME)
 
