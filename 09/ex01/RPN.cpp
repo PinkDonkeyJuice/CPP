@@ -56,7 +56,7 @@ void	RPN::do_op(std::string buffer)
 bool	RPN::is_op(std::string buffer)
 {
 	if (buffer.length() != 1)
-		throw(RPN::InvalidInputException("need one space between all characters"));
+		return false;
 	if (buffer[0] == '+' || buffer[0] == '-' || buffer[0] == '/' || buffer[0] == '*')
 		return true;
 	return false;
@@ -65,7 +65,7 @@ bool	RPN::is_op(std::string buffer)
 bool	RPN::is_num(std::string buffer)
 {
 	if (buffer.length() != 1)
-		throw(RPN::InvalidInputException("need one space between all characters"));
+		return false;
 	if (buffer[0] >= 48 && buffer[0] <= 57)
 		return true;
 	return false;
