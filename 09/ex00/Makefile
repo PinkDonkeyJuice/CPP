@@ -14,7 +14,7 @@ HEADER_FILES = BitcoinExchange.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER_FILES)
+$(NAME): $(OBJ) $(HEADER_FILES) Makefile
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJDIR)/%.o: %.cpp $(HEADER_FILES)

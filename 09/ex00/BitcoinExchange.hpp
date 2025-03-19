@@ -19,8 +19,8 @@ public:
 	bool	loadCSV(std::string db_name);
 	void	calc_values(const std::string infile_name);
 	double find_closest_value(const std::string date);
-	void check_date(const std::string date);
-	double	convert_amount(const std::string str_amount);
+	void check_date(const std::string date, int i);
+	double	convert_amount(const std::string str_amount, int i);
 
 
 	class InvalidNumberException: public std::exception

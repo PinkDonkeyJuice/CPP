@@ -51,13 +51,17 @@ bool	BitcoinExchange::loadCSV(std::string db_name)
 	return true;
 }
 
-void	BitcoinExchange::check_date(const std::string date)
+void	BitcoinExchange::check_date(const std::string date, int i)
 {
 	int day, month, year;
 
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
+	{
+		if (i == 1)
+			return ;
 		throw(InvalidDateException(date));
-	std::istringstream daystream(date.substr(8,2));
+	}
+		std::istringstream daystream(date.substr(8,2));
 	std::istringstream monthstream(date.substr(5,2));
 	std::istringstream yearstream(date.substr(0,4));
 
@@ -77,13 +81,13 @@ double	BitcoinExchange::find_closest_value(const std::string date)
 		throw(InvalidDateException(date));
 	}
 	it = this->mp.lower_bound(date);
-	if (it == this->mp.begin() || (it == this->mp.end() && date > it->first) || it->first == date)
+	if (it == this->mp.begin() || it->first == date)
 		return it->second;
 	--it;
 	return it->second;
 }
 
-double	BitcoinExchange::convert_amount(const std::string str_amount)
+double	BitcoinExchange::convert_amount(const std::string str_amount, int i)
 {
 	std::istringstream intstream(str_amount);
 	int int_amount;
@@ -92,8 +96,10 @@ double	BitcoinExchange::convert_amount(const std::string str_amount)
 
 	if (intstream >> int_amount && intstream.eof() && int_amount >= 0 && int_amount <= 1000)
 		return (static_cast<double>(int_amount));
-	if (floatstream >> float_amount && floatstream.eof() && float_amount >= 0 && float_amount <= 1000)
+	else if (floatstream >> float_amount && floatstream.eof() && float_amount >= 0 && float_amount <= 1000)
 		return (float_amount);
+	else if (i == 1)
+		return -1;
 	throw(InvalidNumberException());
 }
 
@@ -117,18 +123,17 @@ void	BitcoinExchange::calc_values(const std::string infile_name)
 			std::istringstream ss(line);
 			if (!std::getline(ss, date, ' ') || date.empty())
 				throw(InvalidFormatException());
-			check_date(date);
+			check_date(date, i);
 			if (!std::getline(ss, seperator, ' ') || seperator != "|")
 				throw(InvalidFormatException());
 			if (!(ss >> str_amount) || !ss.eof())
 				throw(InvalidFormatException());
-			amount = convert_amount(str_amount);
-			if (this->mp.count(date) <= 0)
+			amount = convert_amount(str_amount, i);
+			if (amount != -1)
 			{
 				value = this->find_closest_value(date);
-				std::cout << "value is : " << value << std::endl;
+				std::cout << date << ": " << amount << " => " << amount * value << std::endl;
 			}
-			std::cout << date << ": " << amount << " => " << amount * value << std::endl;
 		}
 		catch(const std::exception& e)
 		{
