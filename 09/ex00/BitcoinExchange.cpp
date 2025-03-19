@@ -77,11 +77,7 @@ double	BitcoinExchange::find_closest_value(const std::string date)
 		throw(InvalidDateException(date));
 	}
 	it = this->mp.lower_bound(date);
-	if (it == this->mp.begin() && date <= it->first)
-		throw(InvalidDateException(date));
-	else if (it == this->mp.begin())
-		return it->second;
-	if (it == this->mp.end() && date > it->first)
+	if (it == this->mp.begin() || (it == this->mp.end() && date > it->first) || it->first == date)
 		return it->second;
 	--it;
 	return it->second;
@@ -130,6 +126,7 @@ void	BitcoinExchange::calc_values(const std::string infile_name)
 			if (this->mp.count(date) <= 0)
 			{
 				value = this->find_closest_value(date);
+				std::cout << "value is : " << value << std::endl;
 			}
 			std::cout << date << ": " << amount << " => " << amount * value << std::endl;
 		}
