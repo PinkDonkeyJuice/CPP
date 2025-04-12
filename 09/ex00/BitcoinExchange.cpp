@@ -68,8 +68,20 @@ void	BitcoinExchange::check_date(const std::string date, int i)
 	daystream >> day;
 	monthstream >> month;
 	yearstream >> year;
-	if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2024)
+	if ((day < 1 || day > 31 || month < 1 || month > 12))
 		throw(InvalidDateException(date));
+	if (day == 31 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 11))
+		throw(InvalidDateException(date));
+	if (month == 2)
+	{
+		if (((year % 4 == 0 && year % 100 != 0) || year % 400 == 0))
+		{
+			if (day > 29)
+				throw(InvalidDateException(date));
+		}
+		else if (day > 28)
+			throw(InvalidDateException(date));
+	}
 }
 
 double	BitcoinExchange::find_closest_value(const std::string date)

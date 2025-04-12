@@ -231,10 +231,12 @@ void PmergeMe<Container>::sort(Container &L)
 	}
 
 	//Create Jacobsthal sequence to base indexes and insert remaining with binary insertion
-	std::vector<size_t> jacobsthal{1, 3};
+	std::vector<size_t> jacobsthal;
 	size_t 	j_index = 1;
 	size_t	i_added = 0;
 
+	jacobsthal.push_back(1);
+	jacobsthal.push_back(3);
 	while (i_added < pend.size())
 	{
 		size_t i_left = pend.size() - i_added;

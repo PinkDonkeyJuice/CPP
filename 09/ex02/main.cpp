@@ -11,9 +11,9 @@ int	main(int argc, char **argv)
 	try 
 	{
 		std::cout << "With list:" << std::endl;
-		PmergeMe<std::list<Element *>> merge_list(argc, argv);
+		PmergeMe<std::list<Element *> > merge_list(argc, argv);
 		std::cout << "With deque:" << std::endl;
-		PmergeMe<std::deque<Element *>> merge_deque(argc, argv);
+		PmergeMe<std::deque<Element *> > merge_deque(argc, argv);
 	}
 	catch(const std::exception& e)
     {
