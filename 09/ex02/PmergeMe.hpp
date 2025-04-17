@@ -63,7 +63,6 @@ class PmergeMe
 		};
 };
 
-
 template <typename Container>
 PmergeMe<Container>::PmergeMe(int nval, char **input)
 {
@@ -76,8 +75,12 @@ PmergeMe<Container>::PmergeMe(int nval, char **input)
 	for (int i = 1; i < nval; i++)
 	{
 		value = std::strtol(input[i], &endptr, 10);
-		if (!value || value < 0 || value > 2147483647)
+		if (value < 0 || value > 2147483647)
+		{
+			for (typename Container::iterator it = p_L.begin(); it != p_L.end(); it++)
+				delete (*it);
 			throw (PmergeMe::InvalidArgumentsException());
+		}
 		p_L.push_back(new Element (value));
 	}
 	std::cout << std::endl << "Unsorted sequence: ";
